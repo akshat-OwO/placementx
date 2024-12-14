@@ -32,6 +32,10 @@ export const columns: ColumnDef<Placement>[] = [
     {
         accessorKey: "placed_students",
         header: "No of students",
+        cell: ({ row }) => {
+            const { placed_students } = row.original;
+            return <p className="text-center">{placed_students}</p>;
+        },
     },
     {
         accessorKey: "package",
