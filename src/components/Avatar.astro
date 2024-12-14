@@ -1,0 +1,9 @@
+---
+import { Image, type LocalImageProps } from "astro:assets";
+
+const { href, image, alt } = Astro.props;
+---
+
+<a href={href} target="_blank">
+    <Image src={image} alt={alt} loading="lazy" class="size-10 rounded-full" />
+</a>

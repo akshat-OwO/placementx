@@ -1,4 +1,71 @@
 ---
+import akshatOwO from "../assets/images/akshat_OwO.jpg";
+import astro from "../assets/astro.svg";
+import sanity from "../assets/sanity.svg";
+
+import CollegeList from "./CollegeList.astro";
+import CollegeListSkeleton from "./CollegeListSkeleton.astro";
+import Avatar from "./Avatar.astro";
+import AvatarSkeleton from "./AvatarSkeleton.astro";
 ---
 
-<div class="text-2xl text-red-500"></div>
+<div
+    class="row-start-1 flex items-center justify-between gap-2 self-start p-2 md:p-10 lg:p-20"
+>
+    <div class="flex items-center gap-2">
+        <Avatar
+            href="https://astro.build"
+            alt="Astro"
+            image={astro}
+            server:defer
+        >
+            <AvatarSkeleton slot="fallback" />
+        </Avatar>
+        <Avatar
+            href="https://sanity.io"
+            alt="Sanity"
+            image={sanity}
+            server:defer
+        >
+            <AvatarSkeleton slot="fallback" />
+        </Avatar>
+    </div>
+    <div class="flex items-center gap-2">
+        <div
+            class="flex h-fit items-center gap-2 rounded-full bg-neutral-50 p-2 text-xs font-semibold text-neutral-900"
+        >
+            <p>
+                Made by: <a
+                    href="https://x.com/akshat_OwO"
+                    target="_blank"
+                    class="hover:underline">@akshat_OwO</a
+                >
+            </p>
+        </div>
+        <div class="size-10 rounded-full bg-neutral-900">
+            <Avatar
+                href="https://x.com/akshat_OwO"
+                alt="akshat_OwO"
+                image={akshatOwO}
+                server:defer
+            >
+                <AvatarSkeleton slot="fallback" />
+            </Avatar>
+        </div>
+    </div>
+</div>
+
+<div class="row-start-2 flex flex-col items-center gap-2 self-center">
+    <h1 class="text-4xl font-bold text-neutral-50">Placement X</h1>
+    <p class="text-base font-semibold text-neutral-200">
+        GGSIPU's Placement Tracker for 2021-25
+    </p>
+</div>
+
+<div
+    class="row-start-3 flex flex-col flex-wrap items-center gap-4 px-4 pb-4 md:px-10 md:pb-10 lg:flex-row lg:items-start lg:justify-center xl:px-20 xl:pb-20"
+>
+    <CollegeList server:defer>
+        <CollegeListSkeleton slot="fallback" />
+    </CollegeList>
+</div>

@@ -17,8 +17,28 @@ export const queryCollege = {
             params,
         });
     },
-    getColleges: async () => {
+    getCollegesParams: async () => {
         return await loadQuery<SanityDocument[]>({
+            query: `*[_type == "college"]`,
+        });
+    },
+    getColleges: async () => {
+        return await loadQuery<
+            {
+                _id: string;
+                name: string;
+                image: {
+                    _type: string;
+                    asset: { _ref: string; _type: string };
+                };
+                slug: {
+                    _type: string;
+                    current: string;
+                }
+                _updatedAt: string;
+                _createdAt: string;
+            }[]
+        >({
             query: `*[_type == "college"]`,
         });
     },

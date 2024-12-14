@@ -1,0 +1,17 @@
+---
+import { queryCollege } from "../sanity/lib/query-college";
+
+const { data: colleges } = await queryCollege.getColleges();
+---
+
+{
+    colleges.map((college) => (
+        <a
+            href={`/${college.slug.current}`}
+            class="group relative inline-flex w-full items-center justify-center truncate rounded-md bg-neutral-900/20 px-2 py-4 text-base font-semibold text-neutral-50 transition-colors hover:bg-transparent sm:w-96 sm:px-4"
+        >
+            <span class="absolute inset-0 rounded-md bg-[radial-gradient(ellipse_80%_80%_at_50%_90%,rgba(120,119,198,0.3),rgba(255,255,255,0))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <span class="relative">{college.name}</span>
+        </a>
+    ))
+}
