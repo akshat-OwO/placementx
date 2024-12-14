@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { queryCollege } from "../sanity/lib/query-college";
+import { queryPlacement } from "../sanity/lib/query-placement";
+import { urlForImage } from "../sanity/lib/urlForImage";
+import { Image } from "astro:assets";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+    const { data: colleges } = await queryCollege.getColleges();
+    return colleges.map(({ slug }) => ({
+        params: {
+            college: slug.current,
+        },
+    }));
+}
+
+const { params } = Astro;
+
+const { data: college } = await queryCollege.getCollege(params);
+const imageUrl = urlForImage(college.image).url();
+
+const { data: placements } = await queryPlacement.getPlacements(params);
+
+---
+
+<Layout>
+    <h1>Placements for {college.name}</h1>
+    <Image src={imageUrl} alt={college.name} width={300} height={300} />
+    {JSON.stringify(placements)}
+</Layout>
