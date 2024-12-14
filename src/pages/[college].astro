@@ -31,5 +31,5 @@ const { data: placements } = await queryPlacement.getPlacements(params);
         <span class="text-sm font-medium text-neutral-50">Placements for</span>
         <h1 class="text-xl font-semibold text-neutral-50">{college.name}</h1>
     </div>
-    <PlacementList placements={placements} />
+    <PlacementList placements={placements} client:load />
 </Layout>

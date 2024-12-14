@@ -14,6 +14,9 @@ importers:
       '@astrojs/netlify':
         specifier: ^6.0.0
         version: 6.0.0(@types/node@22.10.2)(astro@5.0.5(@types/node@22.10.2)(jiti@1.21.6)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1))(jiti@1.21.6)(rollup@4.28.1)(yaml@2.6.1)
+      '@astrojs/partytown':
+        specifier: ^2.1.2
+        version: 2.1.2
       '@astrojs/react':
         specifier: ^4.1.0
         version: 4.1.0(@types/node@22.10.2)(@types/react-dom@19.0.2(@types/react@19.0.1))(@types/react@19.0.1)(jiti@1.21.6)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(yaml@2.6.1)
@@ -135,6 +138,9 @@ packages:
     resolution: {integrity: sha512-r0Z8A0Sg8g2QsM6veoJ7/UkibXuLJviLZ9TblaEKrvfcyx2O+D5ejHthaAK7kkRb6/Guw7bPxoxfbt6gvM4g/A==}
     peerDependencies:
       astro: ^5.0.0
+
+  '@astrojs/partytown@2.1.2':
+    resolution: {integrity: sha512-1a9T5lqxtnrw0qLPo1KwliUvaaUzPNPtWucD8VxdwT7zqcpODFk1RzGgAgqVo+YhutFrTu/qclbtnOfXBuskjw==}
 
   '@astrojs/prism@3.2.0':
     resolution: {integrity: sha512-GilTHKGCW6HMq7y3BUv9Ac7GMe/MO9gi9GW62GzKtth0SwukCu/qp2wLiGpEujhY+VVhaG9v7kv/5vFzvf4NYw==}
@@ -721,6 +727,11 @@ packages:
   '@babel/types@7.26.3':
     resolution: {integrity: sha512-vN5p+1kl59GVKMvTHt55NzzmYVxprfJD+ql7U9NFIfKCBkYE55LYtS+WtPlaYOyzydrKI8Nezd+aZextrd+FMA==}
     engines: {node: '>=6.9.0'}
+
+  '@builder.io/partytown@0.10.2':
+    resolution: {integrity: sha512-A9U+4PREWcS+CCYzKGIPovtGB/PBgnH/8oQyCE6Nr9drDJk6cMPpLQIEajpGPmG9tYF7N3FkRvhXm/AS9+0iKg==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
 
   '@dnd-kit/accessibility@3.1.1':
     resolution: {integrity: sha512-2P+YgaXF+gRsIihwwY1gCsQSYnu9Zyj2py8kY5fFvUM1qm2WA2u639R6YNVfU4GWr+ZM5mqEsfHZZLoRONbemw==}
@@ -5307,6 +5318,11 @@ snapshots:
       - tsx
       - yaml
 
+  '@astrojs/partytown@2.1.2':
+    dependencies:
+      '@builder.io/partytown': 0.10.2
+      mrmime: 2.0.0
+
   '@astrojs/prism@3.2.0':
     dependencies:
       prismjs: 1.29.0
@@ -6092,6 +6108,8 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
+
+  '@builder.io/partytown@0.10.2': {}
 
   '@dnd-kit/accessibility@3.1.1(react@19.0.0)':
     dependencies:
