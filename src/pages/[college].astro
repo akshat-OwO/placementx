@@ -1,9 +1,10 @@
 ---
+import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import { queryCollege } from "../sanity/lib/query-college";
 import { queryPlacement } from "../sanity/lib/query-placement";
 import { urlForImage } from "../sanity/lib/urlForImage";
-import { Image } from "astro:assets";
+import PlacementList from "../components/PlacementList";
 
 export const prerender = true;
 
@@ -22,11 +23,13 @@ const { data: college } = await queryCollege.getCollege(params);
 const imageUrl = urlForImage(college.image).url();
 
 const { data: placements } = await queryPlacement.getPlacements(params);
-
 ---
 
-<Layout>
-    <h1>Placements for {college.name}</h1>
-    <Image src={imageUrl} alt={college.name} width={300} height={300} />
-    {JSON.stringify(placements)}
+<Layout className="flex flex-col gap-10">
+    <Navbar />
+    <div class="flex flex-col gap-0.5 px-4 md:px-10 xl:px-20">
+        <span class="text-sm font-medium text-neutral-50">Placements for</span>
+        <h1 class="text-xl font-semibold text-neutral-50">{college.name}</h1>
+    </div>
+    <PlacementList placements={placements} />
 </Layout>

@@ -16,7 +16,10 @@ export default defineConfig({
         remotePatterns: [{ protocol: "https" }],
     },
     integrations: [
-        tailwind(),
+        tailwind({
+            applyBaseStyles: false,
+            configFile: "./tailwind.config.ts",
+        }),
         sanity({
             projectId: "i8gsm6jf",
             dataset: "production",

@@ -1,21 +1,20 @@
 ---
+import Head from "../components/Head.astro";
 import "../styles/globals.css";
+
+const { className } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
-        <title>PlacementX</title>
-    </head>
-    <body class="grid grid-rows-3 h-full">
+    <Head title="PlacementX - GGSIPU's Placement Tracker" />
+    <body>
         <div
             class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
         >
         </div>
-        <slot />
+        <div class={className}>
+            <slot />
+        </div>
     </body>
 </html>
