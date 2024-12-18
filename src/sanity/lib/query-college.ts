@@ -12,6 +12,10 @@ export const queryCollege = {
                     _type: string;
                 };
             };
+            maintainer: {
+                name: string;
+                contact: string;
+            };
         }>({
             query: `*[_type == "college" && slug.current == $college][0]`,
             params,
@@ -34,7 +38,7 @@ export const queryCollege = {
                 slug: {
                     _type: string;
                     current: string;
-                }
+                };
                 _updatedAt: string;
                 _createdAt: string;
             }[]

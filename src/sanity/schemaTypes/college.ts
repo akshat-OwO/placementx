@@ -22,6 +22,14 @@ export const collegeType = defineType({
                 hotspot: true,
             },
         }),
+        defineField({
+            name: "maintainer",
+            type: "object",
+            fields: [
+                { name: "name", type: "string" },
+                { name: "contact", type: "string" },
+            ],
+        }),
     ],
     preview: {
         select: {

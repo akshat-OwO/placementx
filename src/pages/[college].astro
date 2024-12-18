@@ -23,6 +23,11 @@ const { data: college } = await queryCollege.getCollege(params);
 const imageUrl = urlForImage(college.image).url();
 
 const { data: placements } = await queryPlacement.getPlacements(params);
+
+const [{ _updatedAt: lastUpdated }] = placements.toSorted(
+    (a, b) =>
+        new Date(b._updatedAt).getTime() - new Date(a._updatedAt).getTime()
+);
 ---
 
 <Layout className="flex flex-col gap-10">
@@ -30,6 +35,24 @@ const { data: placements } = await queryPlacement.getPlacements(params);
     <div class="flex flex-col gap-0.5 px-4 md:px-10 xl:px-20">
         <span class="text-sm font-medium text-neutral-50">Placements for</span>
         <h1 class="text-xl font-semibold text-neutral-50">{college.name}</h1>
+        <span class="text-xs text-muted-foreground"
+            >Last updated at: {
+                Intl.DateTimeFormat("en-In", {
+                    dateStyle: "medium",
+                    timeStyle: "long",
+                    timeZone: "Asia/Kolkata",
+                }).format(new Date(lastUpdated))
+            }
+        </span>
     </div>
-    <PlacementList placements={placements} client:load />
+    <div class="flex flex-col gap-1 px-4 pb-10 md:px-10 xl:px-20 xl:pb-20">
+        <span class="text-xs text-muted-foreground"
+            >Maintained by: <a
+                href={college.maintainer.contact}
+                target="_blank"
+                class="text-primary underline">{college.maintainer.name}</a
+            ></span
+        >
+        <PlacementList placements={placements} client:load />
+    </div>
 </Layout>

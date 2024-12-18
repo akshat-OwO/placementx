@@ -9,13 +9,15 @@ export const queryPlacement = {
                 role: string;
                 placed_students: number;
                 package: string;
+                _updatedAt: string;
             }[]
         >({
             query: `*[_type == "placement" && college._ref in *[_type == "college" && slug.current == $college]._id]{
                 name,
                 role,
                 placed_students,
-                package
+                package,
+                _updatedAt
             }`,
             params,
         });

@@ -50,7 +50,7 @@ const PlacementList = ({ placements }: PlacementListProps) => {
         getCoreRowModel: getCoreRowModel(),
     });
     return (
-        <div className="w-full overflow-x-auto md:px-10 xl:px-20">
+        <div className="overflow-x-auto">
             <Table className="border">
                 <TableHeader>
                     {table.getHeaderGroups().map((headerGroup) => (
