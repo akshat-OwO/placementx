@@ -27,11 +27,11 @@ export const columns: ColumnDef<Placement>[] = [
     },
     {
         accessorKey: "role",
-        header: "Role offered",
+        header: "Role Offered",
     },
     {
         accessorKey: "placed_students",
-        header: "No of students",
+        header: "No. of Students",
         cell: ({ row }) => {
             const { placed_students } = row.original;
             return <p className="text-center">{placed_students}</p>;
@@ -50,7 +50,7 @@ const PlacementList = ({ placements }: PlacementListProps) => {
         getCoreRowModel: getCoreRowModel(),
     });
     return (
-        <div className="overflow-x-auto">
+        <div className="relative max-h-[500px] overflow-auto">
             <Table className="border">
                 <TableHeader>
                     {table.getHeaderGroups().map((headerGroup) => (
